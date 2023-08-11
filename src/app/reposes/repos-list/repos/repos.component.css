@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.name{
+    color: #333;
+    font-size: 24px;
+}
+.descr{
+    color: #333;
+    font-size: 18px;
+}

@@ -1,0 +1,13 @@
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}

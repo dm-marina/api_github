@@ -1,0 +1,5 @@
+<a class="row" (click)="showRepos()">
+    <img [src]="user.avatar_url" alt="{{user.login}}" class="avatar col-3">
+    <p class="login col-6">{{user.login}}</p> 
+</a>
+<app-reposes *ngIf="clicked"></app-reposes>
