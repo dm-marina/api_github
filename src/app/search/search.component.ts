@@ -1,10 +1,8 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { DataStorage } from '../shared/data-storage.service';
 import { User } from '../user-list/user.model';
-import {Observable, Subscription} from 'rxjs'
-
-import { SearchedService } from './searched.service';
+import { Subscription} from 'rxjs'
 import { UserService } from '../user-list/user.service';
 @Component({
   selector: 'app-search',
@@ -19,7 +17,8 @@ export class SearchComponent{
   searchStr:string='';
   changeSub:Subscription;
   minLength:number= 3;
-  constructor(private dataStorage:DataStorage, private searchedService:SearchedService){}
+  constructor(private dataStorage:DataStorage, 
+              private userService:UserService){}
   onSubmit(form:NgForm){
     if(!form.valid){
       return;
@@ -32,22 +31,23 @@ export class SearchComponent{
         (users:User[]|any[])=>{
           for(let userEl of users){
             this.searchedUsers.push(userEl)
-            console.log(this.searchedUsers)
           }
           return this.searchedUsers
         }
     )
-    this.searchedService.setUsers(this.searchedUsers)
+    this.userService.setUsers(this.searchedUsers)
    }
   if(this.searchStr.length<this.minLength){
-    this.isError=!this.isError
+    this.isError=true
+    this.searchedUsers =[]
     this.error= '! You should enter 3 or more characters !'
   }
+  if(this.searchStr.length>=this.minLength){
+    this.isError = false
   }
- 
+  }
 
   ngOnInit(): void {
-   
   }
 
 }

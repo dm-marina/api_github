@@ -13,8 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReposListComponent } from './reposes/repos-list/repos-list.component';
 import { ReposComponent } from './reposes/repos-list/repos/repos.component';
 import { FormsModule } from '@angular/forms';
-import { SearchedListComponent } from './search/searched-list/searched-list.component';
-import { SearchedItemComponent } from './search/searched-list/searched-item/searched-item.component';
 import { ReposesComponent } from './reposes/reposes.component';
 import { ReposItemComponent } from './reposes/repos-list/repos/repos-item/repos-item.component';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
@@ -30,8 +28,6 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
     UserComponent,
     ReposListComponent,
     ReposComponent,
-    SearchedListComponent,
-    SearchedItemComponent,
     ReposesComponent,
     ReposItemComponent,
     PlaceholderDirective

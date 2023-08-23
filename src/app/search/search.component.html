@@ -1,5 +1,7 @@
-    <form class="row container-fluid" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
-        <span *ngIf="isError==false" class="red">{{error}}</span>
+    <form class="row container-fluid" 
+    (ngSubmit)="onSubmit(searchForm)" 
+    #searchForm="ngForm">
+        <span *ngIf="isError==true" class="red">{{error}}</span>
         <span class="search-icon"></span>
         <input type="text" 
         class="search-inp col-12"
@@ -10,6 +12,3 @@
         [minlength]="minLength"
         [ngClass]="{error:isError}">
     </form>
-    <div class="row container-fluid">
-        <app-searched-list class="row"></app-searched-list>
-    </div>

@@ -1,7 +1,6 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit} from '@angular/core';
 import { User } from './user.model';
-import { Subscription, map, tap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { UserService } from './user.service';
 import { DataStorage } from '../shared/data-storage.service';
 
@@ -20,7 +19,7 @@ export class UserListComponent implements OnInit{
     this.userSubscr = this.userService.usersChanged
    .subscribe(
     (users:User[])=>{
-      this.users = users;
+      this.users= users;
     }
    )
    this.users = this.userService.getUsers()

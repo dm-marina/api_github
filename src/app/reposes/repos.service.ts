@@ -5,20 +5,17 @@ import { User } from '../user-list/user.model';
 
 @Injectable({providedIn:'root'})
 export class ReposService{
-    login:string;
     users:User[]
+    id:number
     reposesChanged = new Subject<Repos[]>();
     public reposes:Repos[]=[]
-
+    public repos:Repos[]=[] 
     setReposes(reposes:Repos[]){
         this.reposes = reposes;
         this.reposesChanged.next(this.reposes);
     }
-
     getReposes(){
-        return this.reposes
+        return this.reposes.slice()
     }
-    getRepos(index:number){
-        return this.reposes[index];
-    }
+        
 }

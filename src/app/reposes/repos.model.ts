@@ -1,5 +1,6 @@
 export class Repos{
     constructor(
+        public id:number,
         public name:string,
         public description:string,
         public language:string,
@@ -7,6 +8,7 @@ export class Repos{
         public html_url
 
     ){
+        this.id = id;
         this.name = name;
         this.description = description;
         this.language = language;

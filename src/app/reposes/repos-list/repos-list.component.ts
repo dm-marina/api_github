@@ -1,8 +1,6 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
 import { Repos } from '../repos.model';
-import { User } from 'src/app/user-list/user.model';
 import { DataStorage } from 'src/app/shared/data-storage.service';
 import { ReposService } from '../repos.service';
 @Component({
@@ -10,23 +8,15 @@ import { ReposService } from '../repos.service';
   templateUrl: './repos-list.component.html',
   styleUrls: ['./repos-list.component.css']
 })
-export class ReposListComponent implements OnInit{
+export class ReposListComponent implements OnInit, OnDestroy{
   reposes:Repos[];
-  user:User
   @Output() login:string;
-  @Input()index:number;
   reposSub:Subscription;
-  constructor(private dataStorage:DataStorage, private reposService:ReposService, 
-      private route:ActivatedRoute){}
+  dataStorageSub:Subscription;
+  constructor(private dataStorage:DataStorage, private reposService:ReposService){}
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      params=>{
-        this.login = params['login']
-        this.dataStorage.getUserByLogin(this.reposService.login)
-      }
-    )
-    this.dataStorage.getReposes(this.login).subscribe()
+   this.dataStorageSub =  this.dataStorage.getReposes(this.login).subscribe()
     this.reposSub= this.reposService.reposesChanged
    .subscribe(
     (reposes:Repos[])=>{
@@ -34,6 +24,10 @@ export class ReposListComponent implements OnInit{
     }
    )
    this.reposes = this.reposService.getReposes()
+  }
+  ngOnDestroy(): void {
+    this.dataStorageSub.unsubscribe()
+    this.reposSub.unsubscribe()
   }
   
 

@@ -43,7 +43,6 @@ export class DataStorage{
     .pipe(
       map(reposes=>{
         return reposes.map(repos=>{
-          console.log(repos)
           return{...repos}
         });
       }),
@@ -57,7 +56,7 @@ export class DataStorage{
    return  this.http.get<User[]|any>(`https://api.github.com/search/users?q=${username}`)
    .pipe(
       map(users=>users.items),
-      debounceTime(1000),
+       debounceTime(1000),
       distinctUntilChanged())
  
   }

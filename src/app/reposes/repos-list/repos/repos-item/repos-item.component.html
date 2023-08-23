@@ -1,22 +1,13 @@
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">{{repos.name}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>{{repos.description}}</p>
-          <p>{{repos.language}}</p>
-          <input type="checkbox" *ngIf="repos.has_issues? true : false"> 
-          <a [routerLink]="repos.html_url">Open GitHub</a>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
-        </div>
-      </div>
-    </div>
+<div class="modal-window">
+  <button class="close" type="button" (click)="onClose()"></button>
+  <h5 class="name">{{repos.name}}</h5>
+  <hr>
+  <p><b>Description: </b>{{repos.description}}</p>
+  <p><b>Language: </b>{{repos.language}}</p>
+  <div class="issues">
+    <label for="issues"><b>Has issues:</b></label>
+    <input type="checkbox" id="issues" [checked]="repos.has_issues"> 
   </div>
+  <a [href]="repos.html_url">Open GitHub</a>
+</div>
   

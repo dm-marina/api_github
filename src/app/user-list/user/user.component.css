@@ -2,14 +2,27 @@
     font-size: 20px;
     color: #333;
     align-self: center;
+    margin-top: 15px;
 }
-a{
+.avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+}
+.user-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-decoration: none;
+    text-align: center;
+}
+.user{
+    display: flex;
+    flex-direction: column;
     border: 1px solid #333 ;
     border-radius: 5px;
     margin-top: 10px;
     padding: 15px;
-    display: flex;
-    flex-wrap: nowrap;
-    text-decoration: none;
-    text-align: center;
 }

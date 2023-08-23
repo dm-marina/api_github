@@ -21,14 +21,12 @@ export class UserService{
         this.login = login;
     }
     getUser(login:string){
-        // for(let user of this.users){
-        //     login = user.login;
-        //     this.login = login
-        //     // console.log(login)
+        for(let user of this.users.slice()){
+            login = user.login;
+            this.login = login
 
-        // }
-        // console.log(this.login)
-        // return this.login
+        }
+        return this.login
        
     }
 }

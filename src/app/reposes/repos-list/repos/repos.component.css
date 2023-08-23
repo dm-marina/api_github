@@ -1,12 +1,25 @@
 a{
     text-decoration: none;
     margin-bottom: 15px;
+    border: 1px dashed #654;
+    padding: 15px;
+    justify-content: stretch;
+    display: flex;
 }
-.name{
+.name, span{
     color: #333;
+    text-decoration: none;
     font-size: 24px;
 }
 .descr{
     color: #333;
     font-size: 18px;
+    max-width: 40%;
+    flex-wrap: wrap;
+}
+.row-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
